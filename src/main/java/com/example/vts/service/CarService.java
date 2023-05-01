@@ -24,7 +24,8 @@ public class CarService {
         if (carRepository.existsByGovId(car.getGovId())) {
             return null;
         }
-        return carRepository.save(car);
+        carRepository.save(car);
+        return car;
     }
 
     public Car getCarByGovID(String govId) {
@@ -32,6 +33,11 @@ public class CarService {
             return carRepository.findCarByGovId(govId);
         }
         return null;
+    }
+
+    public void addReport(Car car, List<Report> reports) {
+        car.setReports(reports);
+        carRepository.save(car);
     }
 
     public List<Report> getAllReportsByGovId(String govId) {

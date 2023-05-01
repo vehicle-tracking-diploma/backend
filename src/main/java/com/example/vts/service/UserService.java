@@ -24,6 +24,7 @@ public class UserService implements UserDetailsService {
         if (existsUser) {
             return null;
         }
+        userRepository.save(user);
         return user;
     }
 

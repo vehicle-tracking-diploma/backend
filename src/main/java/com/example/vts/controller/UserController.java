@@ -23,7 +23,6 @@ public class UserController {
     private final UserService userService;
     private final RoleRepository roleRepository;
     private final PasswordEncoder passwordEncoder;
-
     @PostMapping("/user")
     private ResponseEntity<?> save(@RequestBody User user) {
         User newUser = new User();
@@ -38,9 +37,8 @@ public class UserController {
         if (userService.saveUser(newUser) == null) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User with this login exists");
         }
-        return ResponseEntity.status(HttpStatus.CREATED).body("User registered" + userService.saveUser(user));
+        return ResponseEntity.status(HttpStatus.CREATED).body("User registered " + userService.saveUser(user));
     }
-
     @GetMapping("/user")
     private ResponseEntity<?> getCurrentUser() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -50,7 +48,6 @@ public class UserController {
         String email = authentication.getName();
         return ResponseEntity.status(HttpStatus.OK).body(userService.getUser(email));
     }
-
     @GetMapping("/users")
     private ResponseEntity<?> getAll() {
         return ResponseEntity.status(HttpStatus.OK).body(userService.getAll());

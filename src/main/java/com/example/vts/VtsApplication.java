@@ -35,7 +35,6 @@ public class VtsApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-
         Role usrRole = new Role();
         usrRole.setName("ROLE_USER");
         Role adminRole = new Role();

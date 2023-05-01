@@ -4,7 +4,7 @@ import com.example.vts.entity.User;
 import com.example.vts.jwt.JwtTokenProvider;
 import com.example.vts.request.AuthRequest;
 import com.example.vts.service.UserService;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("/api/v1/")
 public class AuthController {
     private final AuthenticationManager authenticationManager;

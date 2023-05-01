@@ -11,8 +11,6 @@ import java.util.List;
 @Data
 public class Car {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String govId;
     @OneToMany
     private List<Report> reports = new ArrayList<>();
