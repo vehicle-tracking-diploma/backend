@@ -1,6 +1,7 @@
 package com.example.vts.service;
 
 import com.example.vts.entity.Car;
+import com.example.vts.entity.Driver;
 import com.example.vts.entity.Report;
 import com.example.vts.repository.CarRepository;
 import lombok.AllArgsConstructor;
@@ -39,6 +40,12 @@ public class CarService {
         car.setReports(reports);
         carRepository.save(car);
     }
+
+    public void addDriver(Car car, List<Driver> drivers) {
+        car.setDrivers(drivers);
+        carRepository.save(car);
+    }
+
 
     public List<Report> getAllReportsByGovId(String govId) {
         if (carRepository.existsByGovId(govId)) {

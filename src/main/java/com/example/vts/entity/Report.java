@@ -1,6 +1,5 @@
 package com.example.vts.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -17,4 +16,6 @@ public class Report {
     private String title;
     private String localDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
     private String detail;
+    private String longitude;
+    private String latitude;
 }

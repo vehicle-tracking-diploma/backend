@@ -22,12 +22,12 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final RoleRepository roleRepository;
-    private final PasswordEncoder passwordEncoder;
+    //private final PasswordEncoder passwordEncoder;
     @PostMapping("/user")
     private ResponseEntity<?> save(@RequestBody User user) {
         User newUser = new User();
         newUser.setEmail(user.getEmail());
-        newUser.setPassword(passwordEncoder.encode(user.getPassword()));
+        newUser.setPassword(user.getPassword());
         newUser.setFirstname(user.getFirstname());
         newUser.setLastname(user.getLastname());
         List<Role> usrRoles = new ArrayList<>();

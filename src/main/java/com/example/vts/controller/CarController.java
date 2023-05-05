@@ -25,7 +25,6 @@ public class CarController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(cars);
     }
-
     @PostMapping("/car")
     public ResponseEntity<?> addCar(@RequestBody Car car) {
         Car newCar = carService.addCar(car);

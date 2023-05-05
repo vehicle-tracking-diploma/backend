@@ -21,17 +21,17 @@ import java.util.List;
 @EnableWebMvc
 public class VtsApplication implements CommandLineRunner {
     RoleRepository roleRepository;
-    PasswordEncoder passwordEncoder;
+   // PasswordEncoder passwordEncoder;
     UserService userService;
 
     public static void main(String[] args) {
         SpringApplication.run(VtsApplication.class, args);
     }
 
-    @Bean
-    public static BCryptPasswordEncoder bCryptPasswordEncoder() {
-        return new BCryptPasswordEncoder();
-    }
+//    @Bean
+//    public static BCryptPasswordEncoder bCryptPasswordEncoder() {
+//        return new BCryptPasswordEncoder();
+//    }
 
     @Override
     public void run(String... args) {
@@ -50,7 +50,7 @@ public class VtsApplication implements CommandLineRunner {
         roles.add(role);
         admin.setRoles(roles);
         admin.setEmail("AmirKing@mail.ru");
-        admin.setPassword(passwordEncoder.encode("1234"));
+        admin.setPassword("1234");
         userService.saveUser(admin);
 
     }
