@@ -24,9 +24,9 @@ public class DriverService {
         driver1.setLastname(driverRequest.getLastname());
         driver1.setPhone(driverRequest.getPhone());
         Car car = carService.getCarByGovID(driverRequest.getGovId());
-        List<Driver> drivers = car.getDrivers();
         driverRepository.save(driver1);
-        carService.addDriver(car, drivers);
+        carService.addDriver(car,driver1);
+
         return driver1;
     }
 

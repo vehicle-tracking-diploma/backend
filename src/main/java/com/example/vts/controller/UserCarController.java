@@ -43,8 +43,8 @@ public class UserCarController {
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
-    @GetMapping("/car")
-    public ResponseEntity<?> getUserCars(String email) {
+    @GetMapping("/user/car")
+    public ResponseEntity<?> getUserCars(@RequestBody String email) {
         User user = userService.getUser(email);
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("User not found");

@@ -25,6 +25,7 @@ public class CarController {
         }
         return ResponseEntity.status(HttpStatus.OK).body(cars);
     }
+
     @PostMapping("/car")
     public ResponseEntity<?> addCar(@RequestBody Car car) {
         Car newCar = carService.addCar(car);
@@ -32,5 +33,14 @@ public class CarController {
             ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The car with this id already exist");
         }
         return ResponseEntity.status(HttpStatus.OK).body(newCar);
+    }
+
+    @GetMapping("/car")
+    public ResponseEntity<?> getCar(@RequestParam String govId) {
+        Car car = carService.getCarByGovID(govId);
+        if (car == null) {
+            ResponseEntity.status(HttpStatus.BAD_REQUEST).body("The car with this id does not exist");
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(car);
     }
 }

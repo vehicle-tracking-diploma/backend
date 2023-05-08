@@ -14,6 +14,8 @@ public class Car {
     private String govId;
     @OneToMany
     private List<Report> reports = new ArrayList<>();
+    @ManyToOne
+    Driver driver;
     @OneToMany
-    List<Driver> drivers = new ArrayList<>();
+    List<Trip> trips = new ArrayList<>();
 }

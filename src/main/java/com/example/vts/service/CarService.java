@@ -41,8 +41,8 @@ public class CarService {
         carRepository.save(car);
     }
 
-    public void addDriver(Car car, List<Driver> drivers) {
-        car.setDrivers(drivers);
+    public void addDriver(Car car, Driver driver) {
+        car.setDriver(driver);
         carRepository.save(car);
     }
 

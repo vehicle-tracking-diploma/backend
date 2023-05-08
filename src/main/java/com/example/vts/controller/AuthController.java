@@ -24,7 +24,7 @@ public class AuthController {
     private final UserService userService;
 
     @PostMapping("/login")
-    private ResponseEntity<?> login(@RequestBody AuthRequest authRequest) {
+    private ResponseEntity<String> login(@RequestBody AuthRequest authRequest) {
         String email = authRequest.getEmail();
         String password = authRequest.getPassword();
         try {

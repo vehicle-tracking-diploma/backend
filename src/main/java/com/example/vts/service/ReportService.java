@@ -32,9 +32,13 @@ public class ReportService {
             reports = car.getReports();
         }
         reportRepository.save(report1);
-        reports.add(report1);   
+        reports.add(report1);
         carService.addReport(car, reports);
         return report1;
+    }
+
+    public Report getReport(Long id) {
+        return reportRepository.getReportById(id);
     }
 
 }

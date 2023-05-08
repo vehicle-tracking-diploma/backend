@@ -22,7 +22,7 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final RoleRepository roleRepository;
-    //private final PasswordEncoder passwordEncoder;
+
     @PostMapping("/user")
     private ResponseEntity<?> save(@RequestBody User user) {
         User newUser = new User();

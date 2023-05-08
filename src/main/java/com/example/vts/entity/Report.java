@@ -16,6 +16,6 @@ public class Report {
     private String title;
     private String localDateTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm"));
     private String detail;
-    private String longitude;
-    private String latitude;
+    private double longitude;
+    private double latitude;
 }

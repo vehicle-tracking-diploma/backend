@@ -51,6 +51,12 @@ public class ReportController {
         return ResponseEntity.status(HttpStatus.OK).body(reports);
     }
 
+    @GetMapping("/report")
+    public ResponseEntity<?> getReport(@RequestParam Long reportId) {
+        Report report = reportService.getReport(reportId);
+        return ResponseEntity.status(HttpStatus.OK).body(report);
+    }
+
     public void downloadExcel(String govId) {
         List<Report> reports = carService.getAllReportsByGovId(govId);
         Workbook workbook = new XSSFWorkbook();
@@ -74,7 +80,7 @@ public class ReportController {
         }
     }
 
-    @GetMapping("/download/excel")
+    @GetMapping("/download/xlsx")
     public ResponseEntity<byte[]> downloadFile(@RequestParam String govId) throws IOException {
         String inputFile = "C:\\Users\\azama\\OneDrive\\Документы\\AITU\\diploma\\reports\\report_" + govId + ".xlsx";
         File file = new File(inputFile);
