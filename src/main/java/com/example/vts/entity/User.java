@@ -21,6 +21,6 @@ public class User {
     private String password;
     @ManyToMany
     private List<Role> roles = new ArrayList<>();
-    @OneToMany
+    @ManyToMany
     private List<Car> cars = new ArrayList<>();
 }

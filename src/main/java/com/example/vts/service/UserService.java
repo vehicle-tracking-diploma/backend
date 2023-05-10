@@ -31,7 +31,9 @@ public class UserService implements UserDetailsService {
     public List<User> getAll() {
         return userRepository.findAll();
     }
-
+    public void saveCars(User user) {
+        userRepository.save(user);
+    }
     public User getUser(String email) {
         return userRepository.findUserByEmail(email);
     }

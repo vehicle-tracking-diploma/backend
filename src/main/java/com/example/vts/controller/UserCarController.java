@@ -21,6 +21,7 @@ public class UserCarController {
     UserService userService;
     CarService carService;
 
+
     @PostMapping("/assign/car")
     private ResponseEntity<?> assign_vehicle_to_user(@RequestBody AssignCarRequest assignRequest) {
         User user = userService.getUser(assignRequest.getEmail());
@@ -40,11 +41,12 @@ public class UserCarController {
             cars.add(car);
         }
         user.setCars(cars);
+        userService.saveCars(user);
         return ResponseEntity.status(HttpStatus.OK).body(user);
     }
 
-    @GetMapping("/user/car")
-    public ResponseEntity<?> getUserCars(@RequestBody String email) {
+    @GetMapping("/user/cars")
+    public ResponseEntity<?> getUserCars(@RequestParam String email) {
         User user = userService.getUser(email);
         if (user == null) {
             return ResponseEntity.status(HttpStatus.NO_CONTENT).body("User not found");
